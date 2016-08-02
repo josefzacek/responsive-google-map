@@ -1,73 +1,73 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<!--media queries-->
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>responsive google map</title>
-<!--favicon-->
-<link rel="shortcut icon" href="images/favicon.png"/>
-<!--boiler-plate-->
-<link href="css/boilerplate.css" rel="stylesheet" type="text/css">
-<!--css-->
-<link href="css/main.css" rel="stylesheet" type="text/css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>responsive google map</title>
+    <!--favicon-->
+    <link rel="shortcut icon" href="images/favicon.png"/>
+    <!--boiler-plate-->
+    <link href="css/boilerplate.css" rel="stylesheet" type="text/css">
+    <!--css-->
+    <link href="css/main.css" rel="stylesheet" type="text/css">
 
-<!--[if lt IE 9]>
-<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-<![endif]-->
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
     <style>
+
       #map_canvas {
         width: 80%;
         height: 200px;
-		margin:10px auto;
+		    margin:10px auto;
       }
-	  @media only screen and (min-width: 481px) {
-	  	#map_canvas {
-       		 height: 500px;
-      		}
-	  }
-	  
 
-	  @media only screen and (min-width: 769px) {
-		  #map_canvas {
-       		 height: 350px;
-      		}
-	  }
-    </style>
-    
+  	  @media only screen and (min-width: 481px) {
+  	  	#map_canvas {
+         	height: 500px;
+        }
+  	  } 
+
+  	  @media only screen and (min-width: 769px) {
+  		  #map_canvas {
+         	height: 350px;
+        }
+  	  }
+
+    </style>  
   </head>
   
   <body>
     <div id="map_canvas"></div>
-	<!--google maps-->
-<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <!--google maps-->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    
     <script>
       function initialize() {
-  var myLatlng = new google.maps.LatLng(53.349732,-6.259989);
+        var myLatlng = new google.maps.LatLng(53.349732,-6.259989);
 
+        google.maps.event.addDomListener(window, 'resize', function() {
+          map.setCenter(myLatlng);
+        });
   
-  google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(myLatlng);
-});
-  
-  var mapOptions = {
-    zoom: 10,
-    center: myLatlng,
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  }
-  var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        var mapOptions = {
+          zoom: 10,
+          center: myLatlng,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        
+        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
 
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Josef Zacek - Web Development'
-  });
-}
+        var marker = new google.maps.Marker({
+          position: myLatlng,
+          map: map,
+          title: 'Josef Zacek - Web Development'
+        });
+      }
 
-
-google.maps.event.addDomListener(window, 'load', initialize);
+      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
+
   </body>
-  
 </html>
