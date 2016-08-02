@@ -11,20 +11,20 @@
 
     <style>
 
-      #map_canvas {
+      #map-canvas {
         width: 80%;
-        height: 200px;
+        height: 150px;
 		    margin:10px auto;
       }
 
   	  @media only screen and (min-width: 481px) {
-  	  	#map_canvas {
-         	height: 500px;
+  	  	#map-canvas {
+         	height: 250px;
         }
   	  } 
 
   	  @media only screen and (min-width: 769px) {
-  		  #map_canvas {
+  		  #map-canvas {
          	height: 350px;
         }
   	  }
@@ -33,7 +33,7 @@
   </head>
   
   <body>
-    <div id="map_canvas"></div>
+    <div id="map-canvas"></div>
     <!--google maps-->
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     
@@ -51,7 +51,7 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         
-        var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
         var marker = new google.maps.Marker({
           position: myLatlng,
