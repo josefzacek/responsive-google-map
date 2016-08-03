@@ -11,4 +11,3 @@ Resize browser window to see how height of map changes while marker stays in cen
 * Animated Google Map marker
 * Hoovering over marker shows title set (Dublin, capital of the Republic of Ireland)
 * Clicking on marker opens [http://www.dublincity.ie](http://www.dublincity.ie) in new tab
-* 
