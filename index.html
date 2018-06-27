@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,59 +11,47 @@
     <![endif]-->
 
     <style>
-
       #map-canvas {
-        width: 80%;
-        height: 150px;
-        margin:10px auto;
+        width: 100vw;
+        height: 40vh;
       }
 
-      @media only screen and (min-width: 481px) {
-        #map-canvas {
-          height: 250px;
-        }
-      } 
-
-      @media only screen and (min-width: 769px) {
-        #map-canvas {
-          height: 350px;
-        }
-      }
-
-    </style>  
+    </style>
   </head>
-  
+
   <body>
     <div id="map-canvas"></div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer"></script>
-    
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script> -->
+    <script src="https://maps.googleapis.com/maps/api/js?&callback=initMap" async defer></script>
+
     <script>
       function initMap() {
-        var myLatlng = new google.maps.LatLng(53.349838,-6.260204);   // latitude/longitude  
+        var myLatlng = new google.maps.LatLng(53.349838, -6.260204); // latitude/longitude
         var mapOptions = {
-          zoom: 13,                         // higher number => closer
+          zoom: 13, // higher number => closer
           center: myLatlng,
           mapTypeId: google.maps.MapTypeId.ROADMAP,
-          streetViewControl: false,                   // remove street view icon
-          mapTypeControl: false                      // remove map type tabs
+          streetViewControl: false, // remove street view icon
+          mapTypeControl: false // remove map type tabs
         }
 
-        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions); 
+        var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
         var marker = new google.maps.Marker({
           position: myLatlng,
           map: map,
           animation: google.maps.Animation.DROP,
-          title: 'Dublin, capital of the Republic of Ireland'  // title when hovered over marker
+          title: 'Dublin, capital of the Republic of Ireland' // title when hovered over marker
         });
 
         // click on marker to open url in new tab
         google.maps.event.addListener(marker, 'click', function() {
-          window.open('http://www.dublincity.ie/','_blank');
+          window.open('http://www.dublincity.ie/', '_blank');
         });
-        
-        // code from stack overflow to keep marker in middle
+
+        // keep marker in middle
         var center;
+
         function calculateCenter() {
           center = map.getCenter();
         }
@@ -72,8 +61,10 @@
         google.maps.event.addDomListener(window, 'resize', function() {
           map.setCenter(center);
         });
-      } 
+      }
+
     </script>
 
   </body>
+
 </html>
